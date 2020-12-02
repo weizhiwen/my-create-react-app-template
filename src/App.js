@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import {Button} from "antd";
+import axios from "axios";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const handleClick = () => {
+        axios.get("/api/aaa").then(res => {
+            console.log(res.data);
+        })
+    }
+    return (
+        <div>
+            <div className="App">
+                <Button onClick={handleClick} type="primary">测试Axios</Button>
+                <div className="App-text">测试内嵌CSS</div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
